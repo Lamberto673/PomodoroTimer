@@ -63,7 +63,7 @@ function App() {
   function CallBothFunctionRest(){
     Effect.current?.play();
     setIsRunning(false);
-    setSecond(5);
+    setSecond(5*60);
     setReset(5*60);
     setBgColor("#3982b8")
     setWrap("WrapperRest")
@@ -115,6 +115,7 @@ function App() {
     Effect.current?.play();
     setIsRunning(false);
   }
+  
   return (
     <>
       <h1 className='Title'>Pomodoro</h1>
