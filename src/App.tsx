@@ -2,8 +2,8 @@ import { useRef, useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-    let Effect = useRef(new Audio("./src/assets/0103.mp3"));
-    let TimeOut= useRef(new Audio("./src/assets/Clock.mp3"));
+    let Effect = useRef(new Audio("./public/0103.mp3"));
+    let TimeOut= useRef(new Audio("./public/Clock.mp3"));
     
 
     const [second, setSecond] = useState(25 * 60);
@@ -19,6 +19,7 @@ function App() {
 
 
     useEffect(()=> {
+      Effect.current.play();
       if(!isRunning) return;
       const timer = setInterval(() => {
         setSecond(prev => {
