@@ -2,8 +2,8 @@ import { useRef, useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-    let Effect = useRef(new Audio("./public/0103.mp3"));
-    let TimeOut= useRef(new Audio("./public/Clock.mp3"));
+    const Effect = useRef<HTMLAudioElement | null>(null);
+    const TimeOut= useRef<HTMLAudioElement | null>(null);
     
 
     const [second, setSecond] = useState(25 * 60);
@@ -17,14 +17,16 @@ function App() {
     const [Event, setEvent] = useState("Event");
     const [reset, setReset] = useState(0);
 
-
     useEffect(()=> {
-      Effect.current.play();
+      Effect.current = new Audio("./public/0103.mp3");
+      TimeOut.current = new Audio("./public/Clock.mp3");
+    },[])
+    useEffect(()=> {
       if(!isRunning) return;
       const timer = setInterval(() => {
         setSecond(prev => {
           if(prev <= 0){
-            TimeOut.current.play();
+            TimeOut.current?.play();
             clearInterval(timer);
             return 0;
           }else{
@@ -59,9 +61,9 @@ function App() {
   }, [BgColor])
   
   function CallBothFunctionRest(){
-    Effect.current.play();
+    Effect.current?.play();
     setIsRunning(false);
-    setSecond(5*60);
+    setSecond(5);
     setReset(5*60);
     setBgColor("#3982b8")
     setWrap("WrapperRest")
@@ -73,7 +75,7 @@ function App() {
   
   }
   function CallBothFunctionLongRest(){
-    Effect.current.play();
+    Effect.current?.play();
     setIsRunning(false);
     setSecond(15 * 60);
     setReset(15*60);
@@ -87,7 +89,7 @@ function App() {
     
   }
   function CallBothFunctionFocusMode(){
-    Effect.current.play();
+    Effect.current?.play();
     setIsRunning(false);
     setSecond(25*60);
     setReset(25*60);
@@ -101,9 +103,17 @@ function App() {
     
   }
   function Reset(){
-    Effect.current.play();
+    Effect.current?.play();
     setIsRunning(false);
     setSecond(reset);
+  }
+  function Start(){
+    Effect.current?.play();
+    setIsRunning(true);
+  }
+  function Pause(){
+    Effect.current?.play();
+    setIsRunning(false);
   }
   return (
     <>
@@ -116,8 +126,8 @@ function App() {
       <div className={Wrap2}>
         <h1 className="Timer"style={{textAlign:'center'}}>{FormatTwoDigitMin(minutes)}:{FormatTwoDigitSec(seconds)}</h1>
           <div className={Wrap3}>
-            <button onClick={() => setIsRunning(true)}className={PlayStop}>Start</button>
-            <button onClick={()=> setIsRunning(false)} className={PlayStop}>Pause</button>
+            <button onClick={Start}className={PlayStop}>Start</button>
+            <button onClick={Pause} className={PlayStop}>Pause</button>
             <button onClick={Reset} className={PlayStop}>Reset</button>
         </div>
       </div>
