@@ -4,7 +4,7 @@ import './App.css'
 function App() {
     let Effect = useRef(new Audio("./src/assets/0103.mp3"));
     let TimeOut= useRef(new Audio("./src/assets/Clock.mp3"));
-    Effect.current.play();
+    
 
     const [second, setSecond] = useState(25 * 60);
     const [isRunning, setIsRunning] = useState(false);
@@ -58,6 +58,7 @@ function App() {
   }, [BgColor])
   
   function CallBothFunctionRest(){
+    Effect.current.play();
     setIsRunning(false);
     setSecond(5*60);
     setReset(5*60);
@@ -71,6 +72,7 @@ function App() {
   
   }
   function CallBothFunctionLongRest(){
+    Effect.current.play();
     setIsRunning(false);
     setSecond(15 * 60);
     setReset(15*60);
@@ -84,6 +86,7 @@ function App() {
     
   }
   function CallBothFunctionFocusMode(){
+    Effect.current.play();
     setIsRunning(false);
     setSecond(25*60);
     setReset(25*60);
@@ -97,6 +100,7 @@ function App() {
     
   }
   function Reset(){
+    Effect.current.play();
     setIsRunning(false);
     setSecond(reset);
   }
