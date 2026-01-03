@@ -1,4 +1,4 @@
-# Pomodoro Timer ⏱️
+# Pomodoro Timer
 
 A simple Pomodoro timer built with **React**.  
 Includes focus mode, short rest, long rest, start / pause, reset, and sound effects.
