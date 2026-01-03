@@ -18,8 +18,8 @@ function App() {
     const [reset, setReset] = useState(0);
 
     useEffect(()=> {
-      Effect.current = new Audio("./public/0103.mp3");
-      TimeOut.current = new Audio("./public/Clock.mp3");
+      Effect.current = new Audio("./0103.mp3");
+      TimeOut.current = new Audio("./Clock.mp3");
     },[])
     useEffect(()=> {
       if(!isRunning) return;
@@ -115,7 +115,7 @@ function App() {
     Effect.current?.play();
     setIsRunning(false);
   }
-  
+
   return (
     <>
       <h1 className='Title'>Pomodoro</h1>
