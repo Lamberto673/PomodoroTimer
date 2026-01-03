@@ -2,7 +2,8 @@
 
 A simple Pomodoro timer built with **React**.  
 Includes focus mode, short rest, long rest, start / pause, reset, and sound effects.
-Click the link to try it out: https://pomodoro-timer-chi-lilac.vercel.app
+Click the link to try it out: 
+https://pomodoro-timer-chi-lilac.vercel.app
 
 ## Features
 - 25-minute focus timer
